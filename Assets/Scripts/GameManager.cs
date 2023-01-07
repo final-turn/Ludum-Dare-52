@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     public TMP_Text foodCountUI;
     public TMP_Text energyCountUI;
 
+    [Header("Planets")]
+    public List<Planet> planets;
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +37,11 @@ public class GameManager : MonoBehaviour
 
     public void GoToNextDay()
     {
+        foreach (Planet planet in planets)
+        {
+            planet.OnDayEnd();
+        }
 
+        foodCount += -population;
     }
 }

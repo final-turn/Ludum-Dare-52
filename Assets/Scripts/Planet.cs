@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Planet : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Image img;
+    public Image planetBackground;
+
+    public Sprite thriving;
+    public Sprite neutral;
+    public Sprite dying;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnDayEnd()
     {
-        
+
     }
 }
