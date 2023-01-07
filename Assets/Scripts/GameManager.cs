@@ -6,18 +6,12 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("State")]
+    public AlienStats myStats;
+
     [Header("Screen")]
     public GameObject startScreen;
     public GameObject gameOverScreen;
-
-    [Header("My Stats")]
-    public int population;
-    public int satisfaction;
-
-    [Header("Resource")]
-    public int metalCount;
-    public int foodCount;
-    public int energyCount;
 
     [Header("UI")]
     public TMP_Text populationUI;
@@ -34,6 +28,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        myStats.OnGameStart();
         RenderValues();
     }
 
@@ -44,14 +39,15 @@ public class GameManager : MonoBehaviour
             planet.OnDayEnd();
         }
 
-        foodCount += -population;
+        myStats.OnDayEnd();
 
-        RenderValues();
-
-        if (foodCount <= 0)
+        if (myStats.foodCount <= 0)
         {
             gameOverScreen.SetActive(true);
         }
+
+        RenderValues();
+
     }
 
     public void SelectPlanet(int index)
@@ -61,10 +57,10 @@ public class GameManager : MonoBehaviour
 
     public void RenderValues()
     {
-        populationUI.text = "" + population + "k";
-        satisfactionUI.text = "" + satisfaction + "%";
-        metalCountUI.text = "" + metalCount;
-        foodCountUI.text = "" + foodCount;
-        energyCountUI.text = "" + energyCount;
+        populationUI.text = "" + myStats.population + "k";
+        satisfactionUI.text = "" + (myStats.satisfaction * 100f) + "%";
+        metalCountUI.text = "" + myStats.metalCount;
+        foodCountUI.text = "" + myStats.foodCount;
+        energyCountUI.text = "" + myStats.energyCount;
     }
 }

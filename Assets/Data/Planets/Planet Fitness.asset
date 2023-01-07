@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ec34c1bead0a3943b1beaf3b6b4253d, type: 3}
+  m_Name: Planet Fitness
+  m_EditorClassIdentifier: 
+  leftPolitics: Yoga
+  rightPolitics: Lifting
+  aggression: 0.75
+  selflessness: 0.2
+  agreeableness: 0.05
+  susceptibility: 1
+  politicalDichotomy: 0
+  hostility: 1
+  health: 25
+  population: 3
+  production: 5
+  relationship: 0.5
+  aware: 0

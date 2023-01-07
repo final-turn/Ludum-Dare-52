@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4eb918c5fc222498562cec31c360ed, type: 3}
+  m_Name: Instigate Right
+  m_EditorClassIdentifier: 
+  myStats: {fileID: 11400000, guid: 43c58764f460b624397f6601cb753a79, type: 2}
+  metalCost: 0
+  energyCost: 1
+  description: Abduct People From Here
+  politics: 0
+  hostility: 1
+  health: 0
+  population: -1
+  production: -1
+  aware: 0
+  relationship: -1
+  metal: 0
+  food: 1
+  energy: 0

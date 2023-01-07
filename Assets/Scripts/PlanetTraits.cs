@@ -2,9 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "My Assets/Planet")]
 public class PlanetTraits : ScriptableObject
 {
-    [Header("Properties")]
+    public string leftPolitics;
+    public string rightPolitics;
+
+    [Header("Static Properties")]
+    public float aggression;
+    public float selflessness;
+    public float agreeableness;
+
+    [Header("Dynamic Properties")]
     public float susceptibility; // Main one, used to gauge harvestability
     public float politicalDichotomy;
     public float hostility;
@@ -12,9 +21,6 @@ public class PlanetTraits : ScriptableObject
     public float population;
     public float production;
 
-    public float aggression;
-    public float selflessness;
-    public float agreeableness;
     public float relationship;
     public bool aware;
 }

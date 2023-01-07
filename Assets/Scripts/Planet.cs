@@ -5,20 +5,31 @@ using UnityEngine.UI;
 
 public class Planet : MonoBehaviour
 {
-    public Image img;
-    public Image planetBackground;
+    public PlanetTraits startingTraits;
 
-    public Sprite thriving;
-    public Sprite neutral;
-    public Sprite dying;
+    [HideInInspector] public float susceptibility; // Main one, used to gauge harvestability
+    [HideInInspector] public float politicalDichotomy;
+    [HideInInspector] public float hostility;
+    [HideInInspector] public float health;
+    [HideInInspector] public float population;
+    [HideInInspector] public float production;
 
+    [HideInInspector] public float relationship;
+    [HideInInspector] public bool aware;
+
+    private Image backgroundImg;
 
     void Start()
     {
-        
+        backgroundImg = GetComponent<Image>();
     }
 
     public void OnDayEnd()
+    {
+
+    }
+
+    public void ComputeSusceptibility()
     {
 
     }
