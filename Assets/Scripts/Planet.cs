@@ -12,6 +12,7 @@ public class Planet : MonoBehaviour
     public Sprite neutral;
     public Sprite dying;
 
+
     void Start()
     {
         
