@@ -11,6 +11,7 @@ public class SceneController : MonoBehaviour
     [Header("Screen")]
     public TMP_Text header;
     public TMP_Text reason;
+    public TMP_Text score;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class SceneController : MonoBehaviour
             header.text = "GAME OVER";
             reason.text = "You failed to successfully harvest the planet. They retaliated and defeated you guys :(";
         }
+        score.text = "Your final score is: " + ((myStats.metalCount + myStats.foodCount + myStats.energyCount + myStats.population) * myStats.satisfaction);
     }
 
     public void OnTryAgain()

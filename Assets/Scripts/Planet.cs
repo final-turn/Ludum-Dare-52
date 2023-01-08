@@ -29,6 +29,8 @@ public class Planet : MonoBehaviour
         health = startingTraits.health;
         population = startingTraits.population;
         production = startingTraits.production;
+        relationship = startingTraits.relationship;
+        aware = startingTraits.aware;
 
         dayOptions = new List<int>();
         dayOptions.Add(UnityEngine.Random.Range(0, 5));
@@ -69,7 +71,7 @@ public class Planet : MonoBehaviour
 
         susceptibility = aggrFactor + hostileFactor + relationshipFactor - politicalFactor;
 
-        // Debug.Log($"a{aggrFactor} * h{hostileFactor} + r{relationshipFactor} - p{politicalFactor}");
+        // Debug.Log($"{startingTraits.name}({susceptibility}): a{aggrFactor} + h{hostileFactor} + r{relationshipFactor} - p{politicalFactor}");
 
         susceptibility = Mathf.Clamp01(susceptibility);
 
@@ -84,8 +86,6 @@ public class Planet : MonoBehaviour
     public bool Harvest()
     {
         float success = Random.Range(0f, 1f);
-
-        Debug.Log(success);
 
         if (success < (1 - susceptibility))
             return false;

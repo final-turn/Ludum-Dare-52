@@ -22,5 +22,5 @@ MonoBehaviour:
   health: 8
   population: 10
   production: 3
-  relationship: 0.5
+  relationship: 2
   aware: 0

@@ -9,6 +9,7 @@ public class TabManager : MonoBehaviour
     public GameObject historyTab;
 
     [Header("UI Properties")]
+    public TMP_Text aware;
     public TMP_Text susceptibility;
     public TMP_Text politicalText;
     public TMP_Text hostilityText;
@@ -52,5 +53,6 @@ public class TabManager : MonoBehaviour
         healthText.text = "Health: " + planet.health;
         populationText.text = "Population: " + planet.population + "m";
         productionText.text = "Production: " + planet.production;
+        aware.text = "Sees You: " + (planet.aware ? "Yes" : "No");
     }
 }

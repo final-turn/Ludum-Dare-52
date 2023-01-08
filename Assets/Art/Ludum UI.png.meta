@@ -183,6 +183,27 @@ TextureImporter:
       name: Ludum UI_3
       rect:
         serializedVersion: 2
+        x: 377
+        y: 94
+        width: 321
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 676d3dafccb65fd45a389fae03d21775
+      internalID: -731315501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ludum UI_7
+      rect:
+        serializedVersion: 2
         x: 122
         y: 203
         width: 145
@@ -194,8 +215,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 676d3dafccb65fd45a389fae03d21775
-      internalID: -731315501
+      spriteID: 0a61764992e833447b189d3b5d361fdf
+      internalID: 960739727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ludum UI_8
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 228
+        width: 162
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50d2edcce6eea1245ac91db97c290c32
+      internalID: 1147853513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ludum UI_9
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 298
+        width: 99
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30138d5d5d6c08040b193b6444e0cf3c
+      internalID: -1730625162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ludum UI_10
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 70
+        width: 80
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ba6912745ec5b84a9c6cf114eab9660
+      internalID: -2023432068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ludum UI_13
+      rect:
+        serializedVersion: 2
+        x: 1164
+        y: 166
+        width: 98
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb97c1c11b86fb14baf630aa890c21aa
+      internalID: -969441887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ludum UI_14
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 112
+        width: 71
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a34a04c8381d394d8b5ee320cdb7f1d
+      internalID: 383371889
       vertices: []
       indices: 
       edges: []
@@ -213,8 +339,19 @@ TextureImporter:
     nameFileIdTable:
       Ludum UI_0: -737001113
       Ludum UI_3: -731315501
+      Ludum UI_13: -969441887
+      Ludum UI_7: 960739727
+      Ludum UI_10: -2023432068
       Ludum UI_1: -1939744367
+      Ludum UI_4: -930246665
+      Ludum UI_5: -1642944838
+      Ludum UI_12: 1544199992
+      Ludum UI_14: 383371889
+      Ludum UI_11: -461478749
+      Ludum UI_6: 1454444732
       Ludum UI_2: -528973069
+      Ludum UI_8: 1147853513
+      Ludum UI_9: -1730625162
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

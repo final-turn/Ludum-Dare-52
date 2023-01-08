@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
 
     [Header("Screen")]
     public GameObject startScreen;
-    public GameObject gameOverScreen;
 
     [Header("Options")]
     public TMP_Text optionLabel;
@@ -104,6 +103,13 @@ public class GameManager : MonoBehaviour
         if (option.OnOptionSelect(planets[activePlanetIndex]))
         {
             planets[activePlanetIndex].OnOptionSelected(index);
+
+            if (planets[activePlanetIndex].population <=0
+                || planets[activePlanetIndex].health <= 0)
+            {
+                planets[activePlanetIndex].gameObject.SetActive(false);
+            }
+
             SelectPlanet(activePlanetIndex);
             message.text = "";
             RenderValues();
@@ -149,6 +155,20 @@ public class GameManager : MonoBehaviour
             myStats.gameEndCondition = AlienStats.EndCondition.HarvestComplete;
             SceneManager.LoadScene("Game Over Scene");
         }
+    }
+    public void ShowStart()
+    {
+        startScreen.gameObject.SetActive(true);
+    }
+
+    public void OnStart()
+    {
+        startScreen.gameObject.SetActive(false);
+    }
+
+    public void Follow()
+    {
+        Application.OpenURL("https://twitter.com/Final_Turn_Dev");
     }
 
     public void OnRestart()
