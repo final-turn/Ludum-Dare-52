@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
         optionsAvatar.sprite = planets[index].transform.GetChild(0).GetComponent<Image>().sprite;
         optionsPanel.SetActive(true);
 
+
         Vector3 anchoredPosition = planets[index].GetComponent<RectTransform>().anchoredPosition - new Vector2(0f, 83f);
         universe.GetComponent<RectTransform>().anchoredPosition = -1 * anchoredPosition;
         
@@ -77,7 +78,7 @@ public class GameManager : MonoBehaviour
             if (i < activeOpIndices.Count)
             {
                 optionUIs[i].gameObject.SetActive(true);
-                optionUIs[i].SetUI(activeOpIndices[i], options[activeOpIndices[i]]);
+                optionUIs[i].SetUI(activeOpIndices[i], options[activeOpIndices[i]], planets[index].startingTraits);
             }
             else
             {
@@ -95,6 +96,7 @@ public class GameManager : MonoBehaviour
             planets[activePlanetIndex].RemoveOption(index);
             SelectPlanet(activePlanetIndex);
 
+            message.text = "";
             RenderValues();
         }
         else
@@ -110,5 +112,15 @@ public class GameManager : MonoBehaviour
         metalCountUI.text = "" + myStats.metalCount;
         foodCountUI.text = "" + myStats.foodCount;
         energyCountUI.text = "" + myStats.energyCount;
+
+        foreach(Planet planet in planets)
+        {
+            if (planet.susceptibility > 0.8f)
+                planet.GetComponent<Image>().color = Color.green;
+            else if (planet.susceptibility > 0.4f)
+                planet.GetComponent<Image>().color = Color.yellow;
+            else
+                planet.GetComponent<Image>().color = Color.red;
+        }
     }
 }

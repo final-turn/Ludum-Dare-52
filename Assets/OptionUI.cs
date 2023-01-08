@@ -10,10 +10,10 @@ public class OptionUI : MonoBehaviour
 
     public int optionIndex;
 
-    public void SetUI(int index, PlanetOption option)
+    public void SetUI(int index, PlanetOption option, PlanetTraits planetTraits)
     {
         optionIndex = index;
         costText.text = $"Cost: {option.metalCost} Metal {option.energyCost} Energy";
-        descriptionText.text = option.description;
+        descriptionText.text = option.description.Replace("{0}", planetTraits.leftPolitics).Replace("{1}", planetTraits.rightPolitics);
     }
 }
