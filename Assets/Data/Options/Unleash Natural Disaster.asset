@@ -21,8 +21,8 @@ MonoBehaviour:
   health: -1
   population: -1
   production: -1
-  aware: 0
   relationship: -1
+  probabilityToBeDiscovered: 0.2
   metal: 0
   food: 0
   energy: 0

@@ -17,12 +17,12 @@ MonoBehaviour:
   energyCost: 1
   description: Support the "{1}" party
   politics: 1
-  hostility: 1
+  hostility: 0.1
   health: 0
   population: 0
   production: 0
-  aware: 0
   relationship: 0
+  probabilityToBeDiscovered: 0.1
   metal: 0
   food: 0
   energy: 0

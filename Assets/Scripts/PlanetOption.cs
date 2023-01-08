@@ -18,8 +18,8 @@ public class PlanetOption : ScriptableObject
     public float health;
     public float population;
     public float production;
-    public bool aware;
     public float relationship;
+    public float probabilityToBeDiscovered;
 
     [Header("My Delta")]
     public int metal;
@@ -42,7 +42,11 @@ public class PlanetOption : ScriptableObject
         planet.population += population;
         planet.production += production;
         planet.relationship += relationship;
-        planet.aware &= aware;
+
+        if (Random.Range(0f, 1f) < probabilityToBeDiscovered)
+        {
+            planet.aware = true;
+        }
 
         myStats.metalCount += metal;
         myStats.foodCount += food;

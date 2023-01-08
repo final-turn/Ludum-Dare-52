@@ -14,7 +14,6 @@ public class PlanetTraits : ScriptableObject
     public float agreeableness;
 
     [Header("Dynamic Properties")]
-    public float susceptibility; // Main one, used to gauge harvestability
     public float politicalDichotomy;
     public float hostility;
     public float health;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     public Image optionsAvatar;
     public GameObject optionsPanel;
     public TabManager tabs;
+
     [Header("UI")]
     public TMP_Text message;
     public TMP_Text populationUI;
@@ -35,10 +37,15 @@ public class GameManager : MonoBehaviour
     private int activePlanetIndex;
     private List<int> activeOpIndices;
 
-    // Start is called before the first frame update
     void Start()
     {
         myStats.OnGameStart();
+
+        foreach (Planet planet in planets)
+        {
+            planet.OnGameStart();
+        }
+
         RenderValues();
     }
 
@@ -51,12 +58,16 @@ public class GameManager : MonoBehaviour
 
         myStats.OnDayEnd();
 
-        if (myStats.foodCount <= 0)
+        if (myStats.satisfaction <= 0)
         {
-            gameOverScreen.SetActive(true);
+            myStats.gameEndCondition = AlienStats.EndCondition.NoSatisfaction;
+            SceneManager.LoadScene("Game Over Scene");
         }
-        optionsPanel.SetActive(false);
-        RenderValues();
+        else
+        {
+            optionsPanel.SetActive(false);
+            RenderValues();
+        }
     }
 
     public void SelectPlanet(int index)
@@ -64,7 +75,6 @@ public class GameManager : MonoBehaviour
         optionLabel.text = planets[index].startingTraits.name;
         optionsAvatar.sprite = planets[index].transform.GetChild(0).GetComponent<Image>().sprite;
         optionsPanel.SetActive(true);
-
 
         Vector3 anchoredPosition = planets[index].GetComponent<RectTransform>().anchoredPosition - new Vector2(0f, 83f);
         universe.GetComponent<RectTransform>().anchoredPosition = -1 * anchoredPosition;
@@ -93,9 +103,8 @@ public class GameManager : MonoBehaviour
 
         if (option.OnOptionSelect(planets[activePlanetIndex]))
         {
-            planets[activePlanetIndex].RemoveOption(index);
+            planets[activePlanetIndex].OnOptionSelected(index);
             SelectPlanet(activePlanetIndex);
-
             message.text = "";
             RenderValues();
         }
@@ -108,19 +117,43 @@ public class GameManager : MonoBehaviour
     public void RenderValues()
     {
         populationUI.text = "" + myStats.population + "k";
-        satisfactionUI.text = "" + (myStats.satisfaction * 100f) + "%";
+        satisfactionUI.text = "" + (Mathf.FloorToInt(myStats.satisfaction * 10000f)/100f) + "%";
         metalCountUI.text = "" + myStats.metalCount;
         foodCountUI.text = "" + myStats.foodCount;
         energyCountUI.text = "" + myStats.energyCount;
+    }
 
-        foreach(Planet planet in planets)
+    public void OnHarvest()
+    {
+        if (!planets[activePlanetIndex].Harvest())
         {
-            if (planet.susceptibility > 0.8f)
-                planet.GetComponent<Image>().color = Color.green;
-            else if (planet.susceptibility > 0.4f)
-                planet.GetComponent<Image>().color = Color.yellow;
-            else
-                planet.GetComponent<Image>().color = Color.red;
+            myStats.gameEndCondition = AlienStats.EndCondition.FailedHarvest;
+            SceneManager.LoadScene("Game Over Scene");
         }
+
+        optionsPanel.SetActive(false);
+        planets[activePlanetIndex].gameObject.SetActive(false);
+
+        bool planetsActive = false;
+        foreach (Planet planet in planets)
+        {
+            planetsActive = planetsActive || planet.gameObject.activeSelf;
+        }
+
+        if (planetsActive)
+        {
+            RenderValues();
+        }
+        else
+        {
+            myStats.gameEndCondition = AlienStats.EndCondition.HarvestComplete;
+            SceneManager.LoadScene("Game Over Scene");
+        }
+    }
+
+    public void OnRestart()
+    {
+        myStats.OnGameStart();
+        RenderValues();
     }
 }

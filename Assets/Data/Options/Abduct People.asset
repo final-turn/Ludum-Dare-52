@@ -18,12 +18,12 @@ MonoBehaviour:
   description: You give the people of this planet a cook book. They eagerly board
     your ships. Gain 2 Food.
   politics: 0
-  hostility: 1
+  hostility: 0.1
   health: 0
   population: -1
   production: 0
-  aware: 0
   relationship: -1
+  probabilityToBeDiscovered: 0.5
   metal: 0
   food: 2
   energy: 0

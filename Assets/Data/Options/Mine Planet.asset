@@ -17,12 +17,12 @@ MonoBehaviour:
   energyCost: 2
   description: Steal Natural Resources
   politics: 0
-  hostility: 1
+  hostility: 0.1
   health: 0
   population: 0
   production: -1
-  aware: 0
   relationship: -1
+  probabilityToBeDiscovered: 0.4
   metal: 2
   food: 0
   energy: 0

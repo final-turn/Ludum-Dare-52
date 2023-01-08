@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Planet : MonoBehaviour
 {
+    public AlienStats myStats;
     public PlanetTraits startingTraits;
 
     [HideInInspector] public float susceptibility; // Main one, used to gauge harvestability
@@ -21,9 +22,8 @@ public class Planet : MonoBehaviour
 
     [HideInInspector] public List<int> dayOptions;
 
-    void Start()
+    public void OnGameStart()
     {
-        susceptibility = startingTraits.susceptibility;
         politicalDichotomy = startingTraits.politicalDichotomy;
         hostility = startingTraits.hostility;
         health = startingTraits.health;
@@ -36,6 +36,7 @@ public class Planet : MonoBehaviour
         dayOptions.Add(UnityEngine.Random.Range(0, 5));
 
         backgroundImg = GetComponent<Image>();
+        ComputeSusceptibility();
     }
 
     public void OnDayEnd()
@@ -46,13 +47,53 @@ public class Planet : MonoBehaviour
         dayOptions.Add(UnityEngine.Random.Range(0, 5));
     }
 
-    public void RemoveOption(int index)
+    public void OnOptionSelected(int index)
     {
         dayOptions.RemoveAt(index);
+        ComputeSusceptibility();
     }
 
     public void ComputeSusceptibility()
     {
+        float relationshipFactor = 0;
+        if (aware)
+        {
+            relationshipFactor = relationship / 10;
+        }
 
+        float politicalFactor = politicalDichotomy / 10;
+        politicalFactor = politicalFactor * politicalFactor;
+
+        float aggrFactor = 1 - startingTraits.aggression;
+        float hostileFactor = 1 - hostility;
+
+        susceptibility = aggrFactor + hostileFactor + relationshipFactor - politicalFactor;
+
+        // Debug.Log($"a{aggrFactor} * h{hostileFactor} + r{relationshipFactor} - p{politicalFactor}");
+
+        susceptibility = Mathf.Clamp01(susceptibility);
+
+        if (susceptibility > 0.8f)
+            backgroundImg.color = Color.green;
+        else if (susceptibility > 0.4f)
+            backgroundImg.color = Color.yellow;
+        else
+            backgroundImg.color = Color.red;
+    }
+
+    public bool Harvest()
+    {
+        float success = Random.Range(0f, 1f);
+
+        Debug.Log(success);
+
+        if (success < (1 - susceptibility))
+            return false;
+
+        myStats.energyCount += Mathf.FloorToInt(production);
+        myStats.foodCount += Mathf.FloorToInt(population);
+        myStats.metalCount += Mathf.FloorToInt(health);
+
+        return true;
     }
 }
