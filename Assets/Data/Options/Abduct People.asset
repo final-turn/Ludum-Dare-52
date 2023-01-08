@@ -14,15 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myStats: {fileID: 11400000, guid: 43c58764f460b624397f6601cb753a79, type: 2}
   metalCost: 0
-  energyCost: 1
-  description: Abduct people to gain food.
+  energyCost: 2
+  description: You give the people of this planet a cook book. They eagerly board
+    your ships. Gain 2 Food.
   politics: 0
   hostility: 1
   health: 0
   population: -1
-  production: -1
+  production: 0
   aware: 0
   relationship: -1
   metal: 0
-  food: 1
+  food: 2
   energy: 0

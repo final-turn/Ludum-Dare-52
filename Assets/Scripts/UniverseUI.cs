@@ -7,6 +7,6 @@ public class UniverseUI : MonoBehaviour, IDragHandler
 {
     public void OnDrag(PointerEventData eventData)
     {
-        this.transform.position += (Vector3)eventData.delta;
+        transform.position += (Vector3)eventData.delta;
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "My Assets/Options")]
-public class PlanetOptions : ScriptableObject
+public class PlanetOption : ScriptableObject
 {
     public AlienStats myStats;
 
@@ -26,8 +26,13 @@ public class PlanetOptions : ScriptableObject
     public int food;
     public int energy;
 
-    public void OnOptionSelect(Planet planet)
+    public bool OnOptionSelect(Planet planet)
     {
+        if (metalCost > myStats.metalCount || energyCost > myStats.energyCount)
+        {
+            return false;
+        }
+
         myStats.metalCount -= metalCost;
         myStats.energyCount -= energyCost;
 
@@ -42,5 +47,7 @@ public class PlanetOptions : ScriptableObject
         myStats.metalCount += metal;
         myStats.foodCount += food;
         myStats.energyCount += energy;
+
+        return true;
     }
 }

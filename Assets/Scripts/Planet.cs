@@ -23,6 +23,13 @@ public class Planet : MonoBehaviour
 
     void Start()
     {
+        susceptibility = startingTraits.susceptibility;
+        politicalDichotomy = startingTraits.politicalDichotomy;
+        hostility = startingTraits.hostility;
+        health = startingTraits.health;
+        population = startingTraits.population;
+        production = startingTraits.production;
+
         dayOptions = new List<int>();
         dayOptions.Add(UnityEngine.Random.Range(0, 5));
         dayOptions.Add(UnityEngine.Random.Range(0, 5));
@@ -37,6 +44,11 @@ public class Planet : MonoBehaviour
         dayOptions.Add(UnityEngine.Random.Range(0, 5));
         dayOptions.Add(UnityEngine.Random.Range(0, 5));
         dayOptions.Add(UnityEngine.Random.Range(0, 5));
+    }
+
+    public void RemoveOption(int index)
+    {
+        dayOptions.RemoveAt(index);
     }
 
     public void ComputeSusceptibility()

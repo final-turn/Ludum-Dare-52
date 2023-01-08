@@ -8,8 +8,11 @@ public class OptionUI : MonoBehaviour
     public TMP_Text costText;
     public TMP_Text descriptionText;
 
-    public void SetUI(PlanetOptions option)
+    public int optionIndex;
+
+    public void SetUI(int index, PlanetOption option)
     {
+        optionIndex = index;
         costText.text = $"Cost: {option.metalCost} Metal {option.energyCost} Energy";
         descriptionText.text = option.description;
     }

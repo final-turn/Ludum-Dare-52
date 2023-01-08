@@ -16,13 +16,13 @@ MonoBehaviour:
   metalCost: 0
   energyCost: 1
   description: Support the {0} party
-  politics: 0
+  politics: -1
   hostility: 1
   health: 0
-  population: -1
-  production: -1
+  population: 0
+  production: 0
   aware: 0
-  relationship: -1
+  relationship: 0
   metal: 0
-  food: 1
+  food: 0
   energy: 0

@@ -13,7 +13,13 @@ public class GameManager : MonoBehaviour
     public GameObject startScreen;
     public GameObject gameOverScreen;
 
+    [Header("Options")]
+    public TMP_Text optionLabel;
+    public Image optionsAvatar;
+    public GameObject optionsPanel;
+    public TabManager tabs;
     [Header("UI")]
+    public TMP_Text message;
     public TMP_Text populationUI;
     public TMP_Text satisfactionUI;
     public TMP_Text metalCountUI;
@@ -24,7 +30,10 @@ public class GameManager : MonoBehaviour
     public Image universe;
     public List<Planet> planets;
     public List<OptionUI> optionUIs;
-    public List<PlanetOptions> options;
+    public List<PlanetOption> options;
+
+    private int activePlanetIndex;
+    private List<int> activeOpIndices;
 
     // Start is called before the first frame update
     void Start()
@@ -46,24 +55,52 @@ public class GameManager : MonoBehaviour
         {
             gameOverScreen.SetActive(true);
         }
-
+        optionsPanel.SetActive(false);
         RenderValues();
-
     }
 
     public void SelectPlanet(int index)
     {
-        universe.GetComponent<RectTransform>().anchoredPosition = -1 * planets[index].GetComponent<RectTransform>().anchoredPosition;
+        optionLabel.text = planets[index].startingTraits.name;
+        optionsAvatar.sprite = planets[index].transform.GetChild(0).GetComponent<Image>().sprite;
+        optionsPanel.SetActive(true);
 
-        List<int> opIndices = planets[index].dayOptions;
-        for (int i = 0; i < opIndices.Count; i++) {
-            optionUIs[i].SetUI(options[opIndices[i]]);
+        Vector3 anchoredPosition = planets[index].GetComponent<RectTransform>().anchoredPosition - new Vector2(0f, 83f);
+        universe.GetComponent<RectTransform>().anchoredPosition = -1 * anchoredPosition;
+        
+        activePlanetIndex = index;
+        activeOpIndices = planets[index].dayOptions;
+
+        tabs.SetPlanet(planets[index]);
+
+        for (int i = 0; i < 3; i++) {
+            if (i < activeOpIndices.Count)
+            {
+                optionUIs[i].gameObject.SetActive(true);
+                optionUIs[i].SetUI(activeOpIndices[i], options[activeOpIndices[i]]);
+            }
+            else
+            {
+                optionUIs[i].gameObject.SetActive(false);
+            }
         }
     }
 
     public void SelectOption(int index)
     {
+        PlanetOption option = options[activeOpIndices[index]];
 
+        if (option.OnOptionSelect(planets[activePlanetIndex]))
+        {
+            planets[activePlanetIndex].RemoveOption(index);
+            SelectPlanet(activePlanetIndex);
+
+            RenderValues();
+        }
+        else
+        {
+            message.text = "Not enough resources to execute that option";
+        }
     }
 
     public void RenderValues()
