@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Abduct People
   m_EditorClassIdentifier: 
   myStats: {fileID: 11400000, guid: 43c58764f460b624397f6601cb753a79, type: 2}
-  metalCost: 0
+  metalCost: 1
   energyCost: 2
   description: You give the people of this planet a cook book. They eagerly board
     your ships. Gain 2 Food.

@@ -69,7 +69,7 @@ public class Planet : MonoBehaviour
         float aggrFactor = 1 - startingTraits.aggression;
         float hostileFactor = 1 - hostility;
 
-        susceptibility = aggrFactor + hostileFactor + relationshipFactor - politicalFactor;
+        susceptibility = (aggrFactor + hostileFactor + relationshipFactor - politicalFactor) * ((10-health)/10);
 
         // Debug.Log($"{startingTraits.name}({susceptibility}): a{aggrFactor} + h{hostileFactor} + r{relationshipFactor} - p{politicalFactor}");
 

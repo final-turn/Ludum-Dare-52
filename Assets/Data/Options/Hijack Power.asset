@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4eb918c5fc222498562cec31c360ed, type: 3}
   m_Name: Hijack Power
   m_EditorClassIdentifier: 
-  myStats: {fileID: 0}
-  metalCost: 1
+  myStats: {fileID: 11400000, guid: 43c58764f460b624397f6601cb753a79, type: 2}
+  metalCost: 2
   energyCost: 1
-  description: Steal Power
+  description: This planet's sun is a great source of solar power. You block it out
+    momentarily. Gain 3 Energy
   politics: 0
   hostility: 0.1
   health: 0

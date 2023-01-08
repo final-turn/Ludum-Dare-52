@@ -10,19 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf4eb918c5fc222498562cec31c360ed, type: 3}
-  m_Name: Unleash Natural Disaster
+  m_Name: Farm Fields
   m_EditorClassIdentifier: 
   myStats: {fileID: 11400000, guid: 43c58764f460b624397f6601cb753a79, type: 2}
-  metalCost: 2
+  metalCost: 0
   energyCost: 2
-  description: This planet has become too rowdy and is due for another global flood.
+  description: You see a prestine cornfield and can't pass up this opportunity to
+    produce some abstract art. Gain 1 Food.
   politics: 0
   hostility: 0
-  health: -1
-  population: -1
-  production: -1
+  health: 0
+  population: 0
+  production: 0
   relationship: -1
-  probabilityToBeDiscovered: 0.2
+  probabilityToBeDiscovered: 0.6
   metal: 0
-  food: 0
+  food: 1
   energy: 0

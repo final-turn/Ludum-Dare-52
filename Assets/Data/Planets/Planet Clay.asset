@@ -17,10 +17,10 @@ MonoBehaviour:
   aggression: 0.5
   selflessness: 0.2
   agreeableness: 0.3
-  politicalDichotomy: -1
+  politicalDichotomy: -3
   hostility: 0.5
-  health: 8
+  health: 4
   population: 10
   production: 3
-  relationship: 2
+  relationship: -1
   aware: 0

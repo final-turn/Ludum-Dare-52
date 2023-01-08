@@ -19,8 +19,8 @@ MonoBehaviour:
   agreeableness: 0.3
   politicalDichotomy: 4
   hostility: 0.5
-  health: 5
+  health: 3
   population: 5
   production: 3
-  relationship: -5
+  relationship: -3
   aware: 1
