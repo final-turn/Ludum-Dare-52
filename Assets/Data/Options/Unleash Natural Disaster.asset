@@ -15,7 +15,7 @@ MonoBehaviour:
   myStats: {fileID: 11400000, guid: 43c58764f460b624397f6601cb753a79, type: 2}
   metalCost: 0
   energyCost: 1
-  description: Abduct People From Here
+  description: Unleash natural disaster to reduce population
   politics: 0
   hostility: 1
   health: 0

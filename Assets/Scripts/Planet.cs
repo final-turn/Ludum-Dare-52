@@ -19,14 +19,24 @@ public class Planet : MonoBehaviour
 
     private Image backgroundImg;
 
+    [HideInInspector] public List<int> dayOptions;
+
     void Start()
     {
+        dayOptions = new List<int>();
+        dayOptions.Add(UnityEngine.Random.Range(0, 5));
+        dayOptions.Add(UnityEngine.Random.Range(0, 5));
+        dayOptions.Add(UnityEngine.Random.Range(0, 5));
+
         backgroundImg = GetComponent<Image>();
     }
 
     public void OnDayEnd()
     {
-
+        dayOptions.Clear();
+        dayOptions.Add(UnityEngine.Random.Range(0, 5));
+        dayOptions.Add(UnityEngine.Random.Range(0, 5));
+        dayOptions.Add(UnityEngine.Random.Range(0, 5));
     }
 
     public void ComputeSusceptibility()

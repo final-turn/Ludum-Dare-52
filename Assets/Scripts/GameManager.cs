@@ -23,7 +23,8 @@ public class GameManager : MonoBehaviour
     [Header("Planets")]
     public Image universe;
     public List<Planet> planets;
-
+    public List<OptionUI> optionUIs;
+    public List<PlanetOptions> options;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +54,16 @@ public class GameManager : MonoBehaviour
     public void SelectPlanet(int index)
     {
         universe.GetComponent<RectTransform>().anchoredPosition = -1 * planets[index].GetComponent<RectTransform>().anchoredPosition;
+
+        List<int> opIndices = planets[index].dayOptions;
+        for (int i = 0; i < opIndices.Count; i++) {
+            optionUIs[i].SetUI(options[opIndices[i]]);
+        }
+    }
+
+    public void SelectOption(int index)
+    {
+
     }
 
     public void RenderValues()
